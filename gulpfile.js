@@ -74,22 +74,16 @@ gulp.task('eslint', () => {
     .pipe(eslint.failAfterError());
 });
 
-gulp.task('watch', ['build'], () => {
-  gulp.start('watch-src');
-  gulp.start('watch-vendor');
-});
+gulp.task('watch', ['watch-src', 'watch-vendor']);
 
-gulp.task('build', ['clean'], () => {
-  gulp.start('build-lib');
-  gulp.start('build-vendor');
-});
+gulp.task('build', ['build-lib', 'build-vendor']);
 
 // watches
-gulp.task('watch-src', () => {
+gulp.task('watch-src', ['build-lib'], () => {
   gulp.watch(files(paths.src), ['build-lib']);
 });
 
-gulp.task('watch-vendor', () => {
+gulp.task('watch-vendor', ['build-vendor'], () => {
   gulp.watch(files(paths.vendor), ['build-vendor']);
 });
 
