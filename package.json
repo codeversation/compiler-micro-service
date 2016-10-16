@@ -3,6 +3,9 @@
   "version": "0.0.0",
   "description": "A server that provides a REST API for arbitrary language to JS compilation.",
   "main": "app.js",
+  "engines" : {
+    "node": ">=6.0" 
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "gulp",
