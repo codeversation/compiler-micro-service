@@ -12,11 +12,11 @@ router.post('/', (req, res) => {
       res.json({ js: ruby(req.body.code) });
     } catch (err) {
       log(err);
-      res.status(500).json({ message: 'Code failed to comiple.' });
+      res.status(500).json({ message: err.message });
     }
   } else {
     log(req.body);
-    log('incorrect format of ruby code.');
+    log('ruby code.');
     res.status(400).json({
       message:
         'Body of request must be a JSON object containing ' +
