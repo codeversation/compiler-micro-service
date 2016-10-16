@@ -1,0 +1,6 @@
+*.log
+build/
+.env
+lib/
+/node_modules/
+doc/
